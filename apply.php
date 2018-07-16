@@ -1,20 +1,11 @@
 <?php
+    include('dbHelper.php');
     
-    $dbini = parse_url(getenv("DATABASE_URL"));
-    $dbini["path"] = ltrim($dbini["path"], "/");
-    echo '<hr />';
-    print_r($dbini);
-    echo '<hr />';
-    //$db = new PDO($dbini);
-    $db = new PDO('pgsql:host='+$dbini['host']+';dbname=' + $dbini['path'], $dbini['user'], $dbini['pass']);
+    # Here we establish the connection. Yes, that's all.
+    $pg_conn = pg_connect(pg_connection_string_from_database_url());
+    # Now let's use the connection for something silly just to prove it works:
+    $result = pg_query($pg_conn, "SELECT LastName FROM Leads WHERE schemaname='public'");
 
-
-    print_r($db);
-    echo '<hr />';
-
-    
-    $result = $db->query("SELECT lastname FROM Leads");
-    print_r($result);
 
 ?>
 <img src="images/apply_Full.png" width="100%"/>
