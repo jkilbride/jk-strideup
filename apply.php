@@ -11,7 +11,7 @@
     echo '<hr />';
 
     
-    $result = $myPDO->query("SELECT lastname FROM Leads");
+    $result = $db->query("SELECT lastname FROM Leads");
     print_r($result);
 
 ?>
