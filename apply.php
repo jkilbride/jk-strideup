@@ -5,7 +5,9 @@
     echo '<hr />';
     print_r($dbini);
     echo '<hr />';
-    $db = new PDO($dbini);
+    //$db = new PDO($dbini);
+    $db = new PDO('pgsql:host='+$dbini['host']+';dbname=' + $dbini['path'], $dbini['user'], $dbini['pass']);
+
 
     print_r($db);
     echo '<hr />';
