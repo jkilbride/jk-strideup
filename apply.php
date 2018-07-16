@@ -10,5 +10,9 @@
     print_r($db);
     echo '<hr />';
 
+    
+    $result = $myPDO->query("SELECT lastname FROM Leads");
+    print_r($result);
+
 ?>
 <img src="images/apply_Full.png" width="100%"/>
